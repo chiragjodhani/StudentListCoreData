@@ -22,12 +22,33 @@ struct AddStudentDetail: View {
     var body: some View {
         VStack{
             Text("Add Student Detail")
-            TextField("Enter your Name", text: $addName).padding()
-            TextField("Enter your Std", text: $addStd).padding()
-            TextField("Enter your Mobile", text: $addMobile).padding()
-            TextField("Enter your Birthdate", text: $addBirthDate).padding()
-            TextField("Enter your EmailId", text: $addEmailId).padding()
+            HStack {
+                Image(systemName: "person.circle")//.foregroundColor(.gray)
+                TextField("Enter your Name", text: $addName)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }.padding(8)
+            HStack {
+                Image(systemName: "book.circle")//.foregroundColor(.gray)
+                TextField("Enter your Std", text: $addStd)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }.padding(8)
+
+            HStack {
+                Image(systemName: "phone.circle")//.foregroundColor(.gray)
+                TextField("Enter your Mobile", text: $addMobile)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }.padding(8)
+            HStack {
+                Image(systemName: "calendar.circle")//.foregroundColor(.gray)
+                 TextField("Enter your Birthdate", text: $addBirthDate)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }.padding(8)
             
+            HStack {
+                Image(systemName: "envelope.circle")//.foregroundColor(.gray)
+                 TextField("Enter your EmailId", text: $addEmailId)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }.padding(8)
             Button(action: {
                 let student = StudentData(context: self.managedObjectContext)
                 student.name = self.addName
@@ -59,3 +80,5 @@ struct AddStudentDetail: View {
 //        AddStudentDetail()
 //    }
 //}
+
+//            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0), lineWidth: 1))

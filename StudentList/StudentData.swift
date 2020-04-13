@@ -17,9 +17,9 @@ public class StudentData: NSManagedObject,Identifiable {
     @NSManaged var email: String?
 }
 extension StudentData {
-    static func getAllStudentList() -> NSFetchRequest<StudentData> {
+    static func getAllStudentList(_ sortByName: String = "name") -> NSFetchRequest<StudentData> {
         let request: NSFetchRequest<StudentData> = StudentData.fetchRequest() as! NSFetchRequest<StudentData>
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: sortByName, ascending: true)
         request.sortDescriptors = [sortDescriptor]
         return request
     }

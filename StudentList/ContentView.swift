@@ -14,21 +14,21 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack{
-            NavigationLink(destination: AddStudentDetail(isActive: $isActive), isActive: $isActive, label: {
-                Text("")
-            })
-            List {
-                ForEach(students, id: \.self) { s in
-                    StudentCardView(name: s.name ?? "", std: s.std ?? "", mobile: s.mobile ?? "", birthdate: s.birthdate ?? "", email: s.email ?? "")
-                }.onDelete { (index) in
-                    self.delete(at: index)
-                }
-            }.onAppear { UITableView.appearance().separatorStyle = .none }
-                .navigationBarTitle("Student List", displayMode: .inline)
-                .navigationBarItems(trailing:Image(systemName : "plus").onTapGesture {
-                    self.isActive = true
-                } )
-        }
+                NavigationLink(destination: AddStudentDetail(isActive: $isActive), isActive: $isActive, label: {
+                    Text("")
+                })
+                List {
+                    ForEach(students, id: \.self) { s in
+                        StudentCardView(name: s.name ?? "", std: s.std ?? "", mobile: s.mobile ?? "", birthdate: s.birthdate ?? "", email: s.email ?? "")
+                    }.onDelete { (index) in
+                        self.delete(at: index)
+                    }
+                }.onAppear { UITableView.appearance().separatorStyle = .none }
+                    .navigationBarTitle("Student List", displayMode: .inline)
+                    .navigationBarItems(trailing:Image(systemName : "plus").onTapGesture {
+                        self.isActive = true
+                    } )
+            }
         }
     }
     
