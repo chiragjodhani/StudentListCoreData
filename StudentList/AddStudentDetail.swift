@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+import Neumorphic
 struct AddStudentDetail: View {
     @State var addName = ""
     @State var addStd = ""
@@ -18,34 +18,40 @@ struct AddStudentDetail: View {
     @Binding var isActive : Bool
     
     @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     var body: some View {
-        VStack{
+        let cornerRadius : CGFloat = 10
+        Neumorphic.shared.colorScheme = colorScheme
+        let mainColor = Neumorphic.shared.mainColor()
+        let darkShadow = Neumorphic.shared.darkShadowColor()
+        let lightShadow = Neumorphic.shared.lightShadowColor()
+        return VStack{
             Text("Add Student Detail")
             HStack {
-                Image(systemName: "person.circle")//.foregroundColor(.gray)
+                Image(systemName: "person.circle")
                 TextField("Enter your Name", text: $addName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             }.padding(8)
             HStack {
-                Image(systemName: "book.circle")//.foregroundColor(.gray)
+                Image(systemName: "book.circle")
                 TextField("Enter your Std", text: $addStd)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             }.padding(8)
 
             HStack {
-                Image(systemName: "phone.circle")//.foregroundColor(.gray)
+                Image(systemName: "phone.circle")
                 TextField("Enter your Mobile", text: $addMobile)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             }.padding(8)
             HStack {
-                Image(systemName: "calendar.circle")//.foregroundColor(.gray)
+                Image(systemName: "calendar.circle")
                  TextField("Enter your Birthdate", text: $addBirthDate)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             }.padding(8)
             
             HStack {
-                Image(systemName: "envelope.circle")//.foregroundColor(.gray)
+                Image(systemName: "envelope.circle")
                  TextField("Enter your EmailId", text: $addEmailId)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             }.padding(8)
@@ -68,8 +74,9 @@ struct AddStudentDetail: View {
                 self.addEmailId = ""
                 self.isActive.toggle()
             }) {
-                Text("Add").frame(width: 100, height: 40, alignment: .center).background(Color.green).foregroundColor(.white).cornerRadius(10)
-            }
+                Text("Add").foregroundColor(.green)
+            }.softButtonStyle(RoundedRectangle(cornerRadius: cornerRadius), mainColor: mainColor, textColor: .white, darkShadowColor: darkShadow, lightShadowColor: lightShadow)
+            .frame(width: 100, height: 40, alignment: .center).padding()
             
         }.padding()
     }
