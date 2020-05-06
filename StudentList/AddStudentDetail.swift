@@ -26,35 +26,31 @@ struct AddStudentDetail: View {
         let mainColor = Neumorphic.shared.mainColor()
         let darkShadow = Neumorphic.shared.darkShadowColor()
         let lightShadow = Neumorphic.shared.lightShadowColor()
-        return VStack{
+        return ScrollView(showsIndicators: false){
+             VStack{
             Text("Add Student Detail")
             HStack {
                 Image(systemName: "person.circle")
                 TextField("Enter your Name", text: $addName)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-            }.padding(8)
+                }.modifier(TFModifier()).padding(8).disableAutocorrection(true)
             HStack {
                 Image(systemName: "book.circle")
                 TextField("Enter your Std", text: $addStd)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-            }.padding(8)
+            }.modifier(TFModifier()).padding(8).disableAutocorrection(true)
 
             HStack {
                 Image(systemName: "phone.circle")
-                TextField("Enter your Mobile", text: $addMobile)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-            }.padding(8)
+                TextField("Enter your Mobile", text: $addMobile).keyboardType(.numberPad)
+            }.modifier(TFModifier()).padding(8).disableAutocorrection(true)
             HStack {
                 Image(systemName: "calendar.circle")
                  TextField("Enter your Birthdate", text: $addBirthDate)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-            }.padding(8)
+            }.modifier(TFModifier()).padding(8).disableAutocorrection(true)
             
             HStack {
                 Image(systemName: "envelope.circle")
                  TextField("Enter your EmailId", text: $addEmailId)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-            }.padding(8)
+            }.modifier(TFModifier()).padding(8).disableAutocorrection(true)
             Button(action: {
                 let student = StudentData(context: self.managedObjectContext)
                 student.name = self.addName
@@ -78,7 +74,8 @@ struct AddStudentDetail: View {
             }.softButtonStyle(RoundedRectangle(cornerRadius: cornerRadius), mainColor: mainColor, textColor: .white, darkShadowColor: darkShadow, lightShadowColor: lightShadow)
             .frame(width: 100, height: 40, alignment: .center).padding()
             
-        }.padding()
+            }.padding()
+        }.modifier(AdaptsToSoftwareKeyboard())
     }
 }
 
@@ -89,3 +86,17 @@ struct AddStudentDetail: View {
 //}
 
 //            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0), lineWidth: 1))
+
+
+struct TFModifier:ViewModifier {
+    func body(content: Content) -> some View {
+        content.padding(20).background(Color("Color"))
+        .cornerRadius(15)
+        .overlay(
+            RoundedRectangle(cornerRadius: 15)
+                .stroke(Color.black.opacity(0.05), lineWidth: 4).shadow(color: Color.black.opacity(0.2), radius: 3, x: 5, y: 5)
+            .clipShape(RoundedRectangle(cornerRadius: 15)).shadow(color: Color.black.opacity(0.2), radius: 3, x: -5, y: -5)
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+        )
+    }
+}

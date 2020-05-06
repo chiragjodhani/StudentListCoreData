@@ -17,6 +17,7 @@
 		C246ADDB244193DF006897C0 /* StudentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246ADDA244193DF006897C0 /* StudentCardView.swift */; };
 		C246ADDD24419B2C006897C0 /* AddStudentDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246ADDC24419B2C006897C0 /* AddStudentDetail.swift */; };
 		C246AE212441C8C6006897C0 /* StudentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246AE202441C8C6006897C0 /* StudentData.swift */; };
+		C260F7152462ED9900A231A6 /* AdaptsToSoftwareKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C260F7142462ED9900A231A6 /* AdaptsToSoftwareKeyboard.swift */; };
 		C29AA173244562FB00F4F5D6 /* Neumorphic in Frameworks */ = {isa = PBXBuildFile; productRef = C29AA172244562FB00F4F5D6 /* Neumorphic */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		C246ADDA244193DF006897C0 /* StudentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCardView.swift; sourceTree = "<group>"; };
 		C246ADDC24419B2C006897C0 /* AddStudentDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentDetail.swift; sourceTree = "<group>"; };
 		C246AE202441C8C6006897C0 /* StudentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentData.swift; sourceTree = "<group>"; };
+		C260F7142462ED9900A231A6 /* AdaptsToSoftwareKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptsToSoftwareKeyboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				C246ADD4244175B7006897C0 /* Info.plist */,
 				C246ADC7244175B4006897C0 /* StudentList.xcdatamodeld */,
 				C246ADCE244175B7006897C0 /* Preview Content */,
+				C260F7142462ED9900A231A6 /* AdaptsToSoftwareKeyboard.swift */,
 			);
 			path = StudentList;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				C246AE212441C8C6006897C0 /* StudentData.swift in Sources */,
 				C246ADDB244193DF006897C0 /* StudentCardView.swift in Sources */,
 				C246ADCB244175B4006897C0 /* ContentView.swift in Sources */,
+				C260F7152462ED9900A231A6 /* AdaptsToSoftwareKeyboard.swift in Sources */,
 				C246ADDD24419B2C006897C0 /* AddStudentDetail.swift in Sources */,
 				C246ADC6244175B4006897C0 /* SceneDelegate.swift in Sources */,
 			);
